@@ -21,12 +21,12 @@
 
             <Label
                 Text="{Binding Message}"
-                Style="{StaticResource Headline}"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+				PropertyChanged="Label_PropertyChanged"
+                Style="{StaticResource Headline}"/>
 
 			<Button
                 Text="Do Something and Close" 
-                 Command="{Binding TestOneCommand}"
+                Command="{Binding TestOneCommand}"
                 HorizontalOptions="Fill" />
 
 			<Button

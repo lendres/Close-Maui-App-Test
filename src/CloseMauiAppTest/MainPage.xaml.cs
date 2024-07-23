@@ -2,13 +2,13 @@
 
 public partial class MainPage : ContentPage
 {
-	public delegate void NoArgumentsEventHandler();
-	public event NoArgumentsEventHandler?	DoneEvent;
+	//public delegate void NoArgumentsEventHandler();
+	//public event NoArgumentsEventHandler?	DoneEvent;
 
 	public MainPage()
 	{
 		InitializeComponent();
-		DoneEvent += Close;
+		//DoneEvent += Close;
 	}
 
 	private void OnTestlicked(object sender, EventArgs e)
@@ -29,6 +29,15 @@ public partial class MainPage : ContentPage
 	private void LongTask()
 	{
 		Thread.Sleep(2000);
-		DoneEvent?.Invoke();
+		//DoneEvent?.Invoke();
+	}
+
+	private void Label_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+	{
+		Label label = sender as Label;
+		if (label.Text == "Done.")
+		{
+			Close();
+		}
 	}
 }

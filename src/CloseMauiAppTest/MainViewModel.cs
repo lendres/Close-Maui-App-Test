@@ -1,6 +1,6 @@
-﻿using Android.App.Admin;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using static CloseMauiAppTest.MainPage;
 
 namespace CloseMauiAppTest;
 
@@ -9,6 +9,9 @@ public class MainViewModel : INotifyPropertyChanged
 	private string _message = "Welcome";
 	
 	public event PropertyChangedEventHandler? PropertyChanged;
+
+	public delegate void NoArgumentsEventHandler();
+	public event NoArgumentsEventHandler? DoneEvent;
 
 
 	public MainViewModel()
@@ -45,6 +48,6 @@ public class MainViewModel : INotifyPropertyChanged
 	private void LongTask()
 	{
 		Thread.Sleep(2000);
-		DoneEvent?.Invoke();
+		Message = "Done.";
 	}
 }
